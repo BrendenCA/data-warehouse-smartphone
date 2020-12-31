@@ -1,0 +1,44 @@
+<Schema name="smartphone">
+  <Cube name="Smartphone" visible="true" cache="true" enabled="true">
+    <Table name="FactMarket">
+    </Table>
+    <Dimension type="TimeDimension" visible="true" foreignKey="Time_id" highCardinality="false" name="Time">
+      <Hierarchy name="Time" visible="true" hasAll="true" allMemberName="All time" primaryKey="id">
+        <Table name="DimTime">
+        </Table>
+        <Level name="Year" visible="true" column="Year" type="Numeric" uniqueMembers="false" levelType="TimeYears" hideMemberIf="Never">
+        </Level>
+        <Level name="Quarter" visible="true" column="Quarter" type="Numeric" uniqueMembers="false" levelType="TimeQuarters" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="Region_id" highCardinality="false" name="Region">
+      <Hierarchy name="Region" visible="true" hasAll="true" allMemberName="All Regions" primaryKey="id">
+        <Table name="DimRegion">
+        </Table>
+        <Level name="Region" visible="true" column="Region" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="SubRegion" visible="true" column="SubRegion" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="Name" visible="true" column="Name" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="Manufacturer_id" highCardinality="false" name="Manufacturer">
+      <Hierarchy name="Manufacturer" visible="true" hasAll="true" allMemberName="All Manufacturers" primaryKey="id">
+        <Table name="DimManufacturer">
+        </Table>
+        <Level name="Name" visible="true" table="DimManufacturer" column="Name" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Measure name="Market Share" column="MarketShare" datatype="Numeric" aggregator="avg" visible="true">
+    </Measure>
+    <Measure name="Shipments" column="Shipments" datatype="Numeric" aggregator="sum" visible="true">
+    </Measure>
+    <Measure name="Global Shipments" column="GlobalShipments" datatype="Numeric" aggregator="sum" visible="true">
+    </Measure>
+    <Measure name="Sentiment" column="Sentiment" datatype="Integer" aggregator="avg" visible="true">
+    </Measure>
+  </Cube>
+</Schema>

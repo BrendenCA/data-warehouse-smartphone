@@ -1,0 +1,10 @@
+country_id,name,subregion,region
+0,Australia,Australia and New Zealand,Oceania
+1,New Zealand,Australia and New Zealand,Oceania
+2,India,Southern Asia,Asia
+3,United Arab Emirates,Western Asia,Asia
+4,Singapore,South-Eastern Asia,Asia
+5,United Kingdom of Great Britain and Northern Ireland,Northern Europe,Europe
+6,Germany,Western Europe,Europe
+7,United States of America,Northern America,Americas
+8,Brazil,South America,Americas
